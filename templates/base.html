@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../static/bootstrap/bootstrap.4.6.min.css">
 <!--    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/bootstrap.4.6.min.css') }}">-->
     <link rel="stylesheet" href="../static/css/init.css">
-    <title>{{% block title %}}{{% endblock %}}</title>
+    <title>{% block title %}{% endblock %}</title>
 <!--    详情页面自己的css,js都放在header当中-->
-    {{% block head %}}{{% endblock %}}
+    {% block head %}{% endblock %}
 <!--    标题自定义-->
 </head>
 
@@ -53,39 +53,3 @@
 </body>
 
 </html>
-
- <div class="row mt-4">
-            <div class="col"></div>
-            <div class="col">
-                <form method="POST" action="#">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">邮箱</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                        <small id="emailHelp" class="form-text text-muted">我们不会把邮箱用于其他用户</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">验证码</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="captcha">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="captcha-btn">获取验证码</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">用户名</label>
-                        <input type="text" class="form-control" name="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">密码</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">确认密码</label>
-                        <input type="password" class="form-control" name="password_confirm">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">立即注册</button>
-                </form>
-            </div>
-            <div class="col"></div>
-        </div>

@@ -2,9 +2,33 @@
 
 {% block title %}知了传课-注册{% endblock %}
 
-{% block head %}{% endblock %}
+
+{% block head %}
+    <script src="{{ url_for('static', filename='jquery/jquery.3.6.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+     <style>
+        /* 样式优化 */
+        #success-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            background-color: #dff0d8;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-weight: bold;
+            color: #3c763d;
+            display: none; /* 默认隐藏 */
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
+<!-- 在页面中添加一个用于显示成功消息的元素 -->
+<div id="success-message" style="display: center;"></div>
+
  <div class="row mt-4">
             <div class="col"></div>
             <div class="col">

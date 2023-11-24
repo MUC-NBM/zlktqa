@@ -1,15 +1,16 @@
 from flask import Flask
-
+from models import EmailCaptchaModel
 import config
 from exts import db,mail
 from models import UserModel
 from blueprints.qa import bp as qa_bp
 from blueprints.auth import bp as auth_bp
-from flask_migrate import Migrate #migrate可以迁移新增字段，但是db.createall不行
+from flask_migrate import Migrate
+#migrate可以迁移新增字段，但是db.createall不行
 
 
 app = Flask(__name__)
-#绑定配置文件-
+#绑定配置文件
 app.config.from_object(config)
 
 db.init_app(app)#先创建，后绑定
