@@ -16,5 +16,6 @@
 发送验证码：
 1. 安装flask库:
     ``pip install flask-mail``    
-
-
+2. 创建flask-mail 然后在config中配置邮箱信息，在exts中创建，app中引用并初始化，然后在auth.py中创建视图函数
+3. 先创建/mail/test，并成功测试邮箱。然后创建/captcha/email视图函数实现发送邮箱的功能，但是还是有欠缺。
+4. 将验证码存储到数据库
