@@ -30,3 +30,13 @@
 2. 创建forms.py，验证邮箱以及验证码
 3. 安装包：
 ``pip install email_validator``
+
+登录页面前端实现完成,修改登录页面.  
+登录页面后端实现：
+    - 修改forms,增加登录数据库表
+    - 修改auth
+    - 设置session，在config中假如secert_key
+    - 登录功能实现
+
+两个钩子函数：
+

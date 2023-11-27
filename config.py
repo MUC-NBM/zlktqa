@@ -22,3 +22,5 @@ MAIL_PASSWORD ="uqlbhymhdmrkddgg"
 MAIL_DEFAULT_SENDER ="2849115967@qq.com"
 
 SECRET_KEY = os.urandom(24)
+
+SECRET_KE = "fafadgrawewga"

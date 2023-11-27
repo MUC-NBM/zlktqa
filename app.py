@@ -5,8 +5,7 @@ from exts import db,mail
 from models import UserModel
 from blueprints.qa import bp as qa_bp
 from blueprints.auth import bp as auth_bp
-from flask_migrate import Migrate
-#migrate可以迁移新增字段，但是db.createall不行
+from flask_migrate import Migrate #migrate可以迁移新增字段，但是db.createall不行
 
 
 app = Flask(__name__)
@@ -24,4 +23,4 @@ app.register_blueprint(auth_bp)
 #bLueprint:用来做模块化的
 #电影、读书、音乐、xxx
 if __name__ =='__main__':
-    app.run()
+    app.run()   

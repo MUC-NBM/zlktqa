@@ -1,19 +1,40 @@
 import random
 import string
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from models import EmailCaptchaModel, UserModel
-from flask import Blueprint, render_template, jsonify,redirect,url_for
+from flask import Blueprint, render_template, jsonify, redirect, url_for, session
 from exts import  mail,db
 from flask_mail import Message
 from flask import request
-from .forms import RegisterForm
+from .forms import RegisterForm,LoginForm
 # /auth
 bp = Blueprint("auth",__name__,url_prefix="/auth")
 # 如果没有指定methods参数，默认就是get请求
-@bp.route("/login")
+@bp.route("/login",methods=['GET','POST'])
 def login():
-    return "这是登录页面"
-
+    if request.method == 'GET':
+        return render_template("login.html")
+    else:
+        form = LoginForm(request.form)
+        if form.validate():
+            email = form.email.data
+            password = form.password.data
+            user = UserModel.query.filter_by(email=email).first()
+            if not user:
+                print("邮箱在数据库中不存在")
+                return redirect(url_for("auth.login"))
+            if check_password_hash(user.password, password):
+                #cookie:一般用来存放登录和授权你的东西
+                #flask中的session是通过加密以后存放在cookie中的
+                session['user_id'] = user.id
+                #这行代码在登录成功之后会被放在cookie中，在以后访问其他页面的时候会被交给其他页面用来快速登录
+                return redirect("/")
+            else:
+                print("密码错误")
+                return redirect(url_for("auth.login"))
+        else:
+            print(form.errors)
+            return
 @bp.route("/register",methods=['GET','POST'])
 def register():
     if request.method =='GET':
