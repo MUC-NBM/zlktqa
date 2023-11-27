@@ -54,6 +54,8 @@ def register():
         else:
             print(form.errors)
             return redirect(url_for("auth.register"))
+
+
 @bp.route("/captcha/email")
 def get_email_captcha():
     # /captcha/email/<email>
@@ -79,3 +81,9 @@ def mail_test():
     message = Message(subject="邮箱测试",recipients=["ygl2849115967@163.com"],body="这是一条测试邮件")
     mail.send(message)
     return "邮件发送成功"
+
+@bp.route("/logout")
+def logout():
+    session.clear()
+    #清除session信息
+    return redirect("/")
