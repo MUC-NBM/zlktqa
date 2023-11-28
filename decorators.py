@@ -9,7 +9,7 @@ def login_required(func):
     def inner(*args,**kwargs):
         if g.user:
             #第一个用来接收任意数量的位置参数，第二个用来接收任意数量的关键字参数
-            func(*args,**kwargs)
+            return func(*args, **kwargs)
         else:
             return redirect(url_for("auth.login"))
     return inner

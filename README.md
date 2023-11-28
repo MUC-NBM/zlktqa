@@ -77,3 +77,27 @@
 
 修改后运行正常:
 ![img_9.png](img_9.png)
+
+
+答案模型创建:
+写到这里不知道有没有人和我一样在创建数据库表的时候一直报错，一直显示question表已存在,但是删除questio表格之后又会出现新的问题,总之非常麻烦
+在经历了删除数据库，从git拉去上一次提交的代码之后，我直接删除了数据库，删除了migrations文件重新建立了一次表，这应该是目前最有效的解决办法。
+
+在修改完成后发现服务器一直报错，后来发现是以为hash加密后的password会超过定义的100字符，所以修改modles:
+```commandline
+class UserModel(db.Model):
+    # ... 其他字段保持不变
+    password = db.Column(db.String(255), nullable=False)
+    # ... 其他字段保持不变
+```
+然后
+```commandline
+flask db migrate -m "Increase password field length"
+flask db upgrade
+```
+像前面视频里边说的一样直接用navicat改也可以
+
+再次发现此处少了一个return导致提交问答这一模块直接失效，不能提交get请求也不能提交post请求。只要点击提交问答就会导致服务器错误，不管你登不登陆
+![img_10.png](img_10.png)
+修改错误如下:
+![img_11.png](img_11.png)
