@@ -44,5 +44,36 @@
 
 关于签出页面的视图函数：
 
-做了关于发布问答的视图函数和html页面
+做了关于发布问答的视图函数和html页面：
 ![img_2.png](img_2.png)
+发布问答的后端功能的实现:
+- 修改models
+- 增加了decoreators.py函数,用来新建装饰器.作用是验证用户是否登录,如果没有登录就不可以发布问答
+
+
+首页问答模板渲染：
+- 修改了index.html，并且在qa中修改了视图函数
+- 修改了avatar.jpg
+![img_3.png](img_3.png)
+
+
+问答列表页渲染：
+- 修改detail.html
+/* 在pycharm中ctrl+alt+l可以格式化*/
+- 修改qa，增加问答详情的视图函数
+- 修改index.html，实现点击跳转到detail.html
+![img_4.png](img_4.png)
+
+写完detail.html之后我发现网页一直报错，加载不到css文件，
+但是我在对比过视频和index.html之后发现代码是没有问题的，所以我调试了一下程序
+结果如下:
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+![img_7.png](img_7.png)
+根据后两张图片我们可以看出，这里的detail.css文件被成功获取,
+但是其他应该在base.html中的文件却没有被获取，所以问题应该是：
+![img_8.png](img_8.png)
+我在base.html中没有使用url_for的语法全局查找文件，而是使用了相对路径,于是detail进入了index的下一级路径导致base.html中的文件没有被导入成功
+
+修改后运行正常:
+![img_9.png](img_9.png)

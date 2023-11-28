@@ -5,9 +5,11 @@
     <!-- 加一行测试注释 -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/bootstrap/bootstrap.4.6.min.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}">
+
 <!--    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap/bootstrap.4.6.min.css') }}">-->
-    <link rel="stylesheet" href="../static/css/init.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/init.css') }}">
+
     <title>{% block title %}{% endblock %}</title>
 <!--    详情页面自己的css,js都放在header当中-->
     {% block head %}{% endblock %}
@@ -27,7 +29,7 @@
                         <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">发布问答</a>
+                        <a class="nav-link" href="{{ url_for('qa.public_question')}}">发布问答</a>
                     </li>
                     <li class="nav-item ml-2">
                         <form class="form-inline my-2 my-lg-0" method="GET" action="#">
