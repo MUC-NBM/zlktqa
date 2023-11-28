@@ -82,6 +82,9 @@
 答案模型创建:
 写到这里不知道有没有人和我一样在创建数据库表的时候一直报错，一直显示question表已存在,但是删除questio表格之后又会出现新的问题,总之非常麻烦
 在经历了删除数据库，从git拉去上一次提交的代码之后，我直接删除了数据库，删除了migrations文件重新建立了一次表，这应该是目前最有效的解决办法。
+此处还有一个问题，应该是老师写错了：
+![img_12.png](img_12.png)
+最后的author应该是对应UserModel表
 
 在修改完成后发现服务器一直报错，后来发现是以为hash加密后的password会超过定义的100字符，所以修改modles:
 ```commandline
@@ -101,3 +104,25 @@ flask db upgrade
 ![img_10.png](img_10.png)
 修改错误如下:
 ![img_11.png](img_11.png)
+
+
+发布答案功能完成:
+- 后端：表单校验和视图函数，post请求的新写法
+    ![img_13.png](img_13.png)
+- 前端：修改detail，答案列表的渲染
+
+搜索功能的实现：
+- 后端修改qa：
+- 前端修改base
+
+完结撒花，最后一点东西不想听了，以后想听再说。
+![img_14.png](img_14.png)
+
+-[ ] 完善commit,梳理以前提交的错误
+-[ ] 写一篇英文版的markdown
+
+
+到此，这个项目的代码已经全部写完,如果对你有帮助的话可以给我一个star
+视频地址：
+[2023版-零基础玩转Python Flask框架-学完可就业]https://www.bilibili.com/video/BV17r4y1y7jJ?p=41&vd_source=1a0df84062fc3afe05ddb5436ffce988
+github地址：
