@@ -1,3 +1,7 @@
+[English Version](./readme_en.md)
+
+[中文版](./readme_zh.md)
+
 1. 安装所需库，这个库比较特殊，其他库自行安装解决
 ``pip install flask-migrate``
 
@@ -118,12 +122,12 @@ flask db upgrade
 完结撒花，最后一点东西不想听了，以后想听再说。
 ![img_14.png](img_14.png)
 
--[ ] 完善commit,梳理以前提交的错误
--[ ] 写一篇英文版的markdown
+- [ ] 完善commit,梳理以前提交的错误
+- [x] 写一篇英文版的markdown
 
 
 到此，这个项目的代码已经全部写完,如果对你有帮助的话可以给我一个star
-视频地址：
+- 视频地址：
 [2023版-零基础玩转Python Flask框架-学完可就业](https://www.bilibili.com/video/BV17r4y1y7jJ?p=41&vd_source=1a0df84062fc3afe05ddb5436ffce988)
-github地址：
+- github地址：
 [github](https://github.com/MUC-NBM/zlktqa)
